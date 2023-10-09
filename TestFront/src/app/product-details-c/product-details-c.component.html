@@ -1,0 +1,89 @@
+<div class="my-container mx-auto border border-dark" style="width: 80%;">
+  <div class="row g-0">
+
+    <!-- Profile Image of Product -->
+    <div class="col-4 p-4">
+      <div class="d-flex justify-content-center align-items-center">
+        <img src={{product.img}} alt="" class="w-100">
+      </div>
+    </div>
+
+    <!-- Details of Product -->
+    <div class="col-8 p-4">
+      <div class="card">
+        <div class="card-header">
+          <h2>{{product.productName}}</h2>
+        </div>
+
+        <div class="card-body">
+          <h1 class="card-title text-success">{{priceAfterDiscount}}
+            <span class="text-secondary">-{{product.discount}}%</span>
+          </h1>
+          <h4 class="card-subtitle text-danger text-decoration-line-through">{{product.price}}
+          </h4>
+        </div>
+        <div class="card-body">
+          <h6 class="card-subtitle my-2 text-secondary">{{product.availableQuantity}} products are available. </h6>
+          <div class="d-grid gap-2">
+            <label for="customRange2" class="form-label">No. of item :</label>
+            <input type="range" class="form-range" min="1" max="3" id="customRange2">
+            <button type="button"  class="btn btn-outline-success" [disabled]="!islogged() || userIsAdmin==='True'"  (click)="AddProductToCart(product)">Add to Cart
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-text">Description</h5>
+          <h2>{{product.productDescription}}</h2>
+          <h2>{{product.specification}}</h2>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Review -->
+  <div class="row g-0 my-5">
+    <!-- Users Review -->
+    <div class="col p-3">
+      <h3>Give Your Review</h3>
+      <h5 class="mt-4">Write Your Review</h5>
+      <textarea class="w-75 p-2"></textarea>
+      <div class="d-flex align-items-start">
+        <button class="btn btn-outline-secondary mt-4 me-5" type="button">
+          Save Review
+        </button>
+
+        <div>
+          <!-- <h6 class="text-danger mt-4">Login first, then enter the
+            review.</h6>
+          <h6 class="text-danger">Review Cannot Be Empty!</h6>
+          <h6 class="text-success">Review Saved Succesfully!</h6> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Review -->
+    <div class="col p-3">
+      <h3>Other Reviews</h3>
+      <h6>No Reviews Yet!</h6>
+      <div class="card mt-3" *ngFor="let review of [1,2]">
+        <div class="card-header d-flex justify-content-between">
+          <div class="card-text">
+            Review1
+            
+            
+          </div>
+          <div class="card-text fst-italic">
+            Reviewed On: <span class="fw-bold">
+              {{"19 June 2023" | date:"dd-MMM-yyy"}}
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-text"> Implementating</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

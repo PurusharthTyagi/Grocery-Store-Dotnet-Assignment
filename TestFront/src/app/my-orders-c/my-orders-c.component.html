@@ -1,0 +1,24 @@
+<div class="my-container mx-auto border border-dark my-rounded-corner" style="width: 90%;">
+	<div class="p-4 border my-rounded-corner">
+
+		<h3 class="w-25 border text-center py-2 my-rounded-corner">My Orders</h3>
+
+		<div class="card mb-5" *ngFor="let cart of [1,1,1,1,1,1]">
+			<div class="card-header d-flex justify-content-between align-items-center">
+				<span class="time">Ordered On : <span class="fs-5">14 June 2023</span></span>
+				<span class="count">Items : 4</span>
+				<span class="price">Price paid : <span class="fs-5">12,800</span></span>
+			</div>
+
+			<div class="cart-body px-4 py-2">
+				<div class="row g-0">
+					<div class="col-2 px-2 py-2" *ngFor="let i of [1,1,1,1]">
+						<app-dashboard-c [view]="'prevOrders'"></app-dashboard-c>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

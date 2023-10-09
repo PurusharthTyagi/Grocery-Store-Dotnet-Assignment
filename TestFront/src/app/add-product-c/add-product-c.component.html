@@ -1,0 +1,112 @@
+<h4>ADD Product Here</h4>
+<form [formGroup]="createProductFrom" (ngSubmit)="create()" class="mt-2">
+
+  <!-- Product Name and Description -->
+  <div class="row mb-3">
+    <div class="col">
+      <label for="productName" class="form-label">Product Name :</label>
+      <input type="text" class="form-control" id="productName" formControlName="productName">
+
+      <!-- Errors -->
+      <div class="form-text text-danger"
+        *ngIf="ProductName.errors?.['required'] && (ProductName.dirty || ProductName.touched)">
+        Product Name is Required
+      </div>
+    </div>
+
+    <div class="col">
+      <label for="productDescription" class="form-label">Product Description :</label>
+      <input type="text" class="form-control" id="productDescription" formControlName="productDescription">
+
+      <!-- Errors -->
+      <div class="form-text text-danger"
+        *ngIf="ProductDescription.errors?.['required'] && (ProductDescription.dirty || ProductDescription.touched)">
+        Description is Required
+      </div>
+    </div>
+  </div>
+
+  <!-- Category and Available Quantity -->
+  <div class="row mb-3">
+    <div class="col">
+      <label for="category" class="form-label">Category :</label>
+      <input type="text" class="form-control" id="category" formControlName="category">
+
+      <!-- Errors -->
+      <div class="form-text text-danger" *ngIf="Category.errors?.['required'] && (Category.dirty || Category.touched)">
+        Category is Required
+      </div>
+    </div>
+
+    <div class="col">
+      <label for="availableQuantity" class="form-label">Available Qunatity :</label>
+      <input type="number" class="form-control" id="availableQuantity" formControlName="availableQuantity">
+
+      <!-- Errors -->
+      <div class="form-text text-danger"
+        *ngIf="AvailableQuantity.errors?.['required'] && (AvailableQuantity.dirty || AvailableQuantity.touched)">
+        Available Quantity is Required
+      </div>
+    </div>
+  </div>
+
+  <!-- Price and Discount -->
+  <div class="row mb-3">
+    <div class="col">
+      <label for="price" class="form-label">Price :</label>
+      <input type="number" class="form-control" id="price" formControlName="price">
+
+      <!-- Errors -->
+      <div class="form-text text-danger" *ngIf="Price.errors?.['required'] && (Price.dirty || Price.touched)">
+        Price is Required
+      </div>
+    </div>
+
+    <div class="col">
+      <label for="discount" class="form-label">Discount :</label>
+      <input type="number" class="form-control" id="discount" formControlName="discount">
+
+      <!-- Errors -->
+      <div class="form-text text-danger" *ngIf="Discount.errors?.['required'] && (Discount.dirty || Discount.touched)">
+        Discount is Required
+      </div>
+    </div>
+  </div>
+
+  <!-- Image Link and Specification -->
+  <div class="row mb-3">
+    <div class="col">
+      <label for="img" class="form-label">Image Link :</label>
+      <input type="text" class="form-control" id="img" formControlName="img">
+
+      <!-- Errors -->
+      <div class="form-text text-danger" *ngIf="Img.errors?.['required'] && (Img.dirty || Img.touched)">
+        Image Link is Required
+      </div>
+    </div>
+
+    <div class="col">
+      <label for="specification" class="form-label">Specification :</label>
+      <input type="text" class="form-control" id="specification" formControlName="specification">
+
+      <!-- Errors -->
+      <div class="form-text text-danger"
+        *ngIf="Specification.errors?.['required'] && (Specification.dirty || Specification.touched)">
+        Description is Required
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Account Button -->
+  <div>
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary btn-block mb-4"
+        [disabled]="createProductFrom.invalid">Create </button>
+    </div>
+  </div>
+
+</form>
+
+
+
+

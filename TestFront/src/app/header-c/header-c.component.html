@@ -1,0 +1,46 @@
+<header class="w-100 h-100 bg-secondary px-4 my-shadow d-flex align-items-center justify-content-between">
+  <div class="text-dark fs-2 fw-bold fst-italic">
+    <span>GroceryP&T</span>
+  </div>
+
+  <span class="text-white" >{{userName}}</span>
+
+  <div class="btn-toolbar" role="toolbar">
+
+    <div class="btn-group btn-group-lg me-3" role="group">
+
+      <button type="button" class="btn btn-outline-light" routerLink="/dashboard">Home</button>
+
+      <div class="btn-group" role="group">
+
+        <button type="button" class="btn btn-outline-light dropdown-toggle"
+          data-bs-toggle="dropdown">Categories</button>
+
+        <ul class="dropdown-menu fs-5">
+
+          <ng-container *ngFor="let item of navigationList; let i = index;">
+            <li class="text-center" [style.cursor]="'pointer'">
+              <a class="dropdown-item" OpenProducts [category]="{id:0, 'category': item.category}"(click)="gotoComponent(item)">{{item.category |
+                titlecase}}</a>
+            </li>
+
+            <li *ngIf="i !== navigationList.length - 1 ">
+              <hr class="dropdown-divider">
+            </li>
+          </ng-container>
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="btn-group btn-group-lg me-2" role="group">
+      <button type="button" *ngIf="userIsAdmin==='True'" class="btn btn-outline-light" routerLink="/add-product">Add</button>
+      <button type="button" *ngIf="!islogged()" class="btn btn-outline-light" routerLink="/login">LogIn</button>
+      <button type="button" *ngIf="!islogged()" class="btn btn-outline-light" routerLink="/signup">SignUp</button>
+      <button type="button" *ngIf="islogged() && userIsAdmin=='False'" class="btn btn-outline-light" routerLink="/cart" >Cart <span class="badge bg-warning text-dark">{{cartItems}}</span></button>
+      <button type="button" *ngIf="islogged() && userIsAdmin=='False'" class="btn btn-outline-light" routerLink="/my-orders">MyOrders</button>
+      <button type="button" *ngIf="islogged()" class="btn btn-outline-light" (click)="logout()">LogOut</button>
+    </div>
+  </div>
+
+</header>
